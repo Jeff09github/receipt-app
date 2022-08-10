@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "355276957732",
+    "project_id": "receipt-app-1dba6",
+    "storage_bucket": "receipt-app-1dba6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355276957732:android:764d4e16b63205ccff10b1",
+        "android_client_info": {
+          "package_name": "com.example.receipt_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355276957732-dj84rvu3jmvag5aoh9a2va9t9l7eehse.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0Cu7UIoebyN1gCHxcM4_0aErRRsbtTjQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "355276957732-dj84rvu3jmvag5aoh9a2va9t9l7eehse.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
