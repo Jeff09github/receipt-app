@@ -26,3 +26,11 @@ class SetAmount extends PaymentsEvent {
   @override
   List<Object> get props => [amount];
 }
+
+class SetBalance extends PaymentsEvent {
+  const SetBalance({required this.balance});
+  final String balance;
+
+  @override
+  List<Object> get props => [balance];
+}

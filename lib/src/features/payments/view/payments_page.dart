@@ -113,7 +113,23 @@ class PaymentsView extends StatelessWidget with Validator {
           ),
           children: [
             CustomTextFormField(
-              labelText: 'Amount',
+              labelText: 'Previous Balance',
+              onChanged: (value) {
+                context.read<PaymentsBloc>().add(SetBalance(balance: value));
+              },
+              validate: validateString,
+              textInputType:
+                  const TextInputType.numberWithOptions(decimal: true),
+              textInputFormatters: [
+                // FilteringTextInputFormatter(RegExp(r'^[0-9]+$'), allow: true),
+                FilteringTextInputFormatter.digitsOnly
+              ],
+            ),
+            const SizedBox(
+              height: 8.0,
+            ),
+            CustomTextFormField(
+              labelText: 'Current Amount',
               onChanged: (value) {
                 context.read<PaymentsBloc>().add(SetAmount(amount: value));
               },
@@ -124,6 +140,9 @@ class PaymentsView extends StatelessWidget with Validator {
                 // FilteringTextInputFormatter(RegExp(r'^[0-9]+$'), allow: true),
                 FilteringTextInputFormatter.digitsOnly
               ],
+            ),
+            const SizedBox(
+              height: 20.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

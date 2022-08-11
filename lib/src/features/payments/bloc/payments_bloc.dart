@@ -18,6 +18,7 @@ class PaymentsBloc extends Bloc<PaymentsEvent, PaymentsState> {
     on<AddNewPayment>(_onAddNewPayment);
     on<ToggleDialog>(_onToggleDialog);
     on<SetAmount>(_onSetAmount);
+    on<SetBalance>(_onSetBalance);
   }
 
   final FirestoreDatabaseRepository firestoreDatabaseRepository;
@@ -30,6 +31,7 @@ class PaymentsBloc extends Bloc<PaymentsEvent, PaymentsState> {
       final payment = Payment(
         customerId: customerId,
         dateCreated: DateTime.now(),
+        balance: double.parse(state.balance),
         amount: double.parse(state.amount),
       );
       await firestoreDatabaseRepository.setPayment(payment: payment);
@@ -55,6 +57,11 @@ class PaymentsBloc extends Bloc<PaymentsEvent, PaymentsState> {
 
   FutureOr<void> _onSetAmount(SetAmount event, Emitter<PaymentsState> emit) {
     emit(state.copyWith(status: PaymentsStatus.success, amount: event.amount));
+  }
+
+  FutureOr<void> _onSetBalance(SetBalance event, Emitter<PaymentsState> emit) {
+    emit(
+        state.copyWith(status: PaymentsStatus.success, balance: event.balance));
   }
 
   FutureOr<void> _onToggleDialog(
