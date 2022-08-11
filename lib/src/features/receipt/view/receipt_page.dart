@@ -84,13 +84,15 @@ class ReceiptCard extends StatelessWidget {
               const Text('Connection: PPPOE'),
               Text('Speed: ${receiptDetails.profile.speed} Mbps'),
               Text('Price: ${receiptDetails.profile.price}'),
+              Text('Balance: ${receiptDetails.payment.balance}'),
               const Divider(
                 thickness: 2.0,
               ),
-              Text('Total: ${receiptDetails.profile.price}'),
+              Text(
+                  'Total: ${receiptDetails.profile.price + receiptDetails.payment.balance}'),
               Text('Cash: ${receiptDetails.payment.amount}'),
               Text(
-                  'Change: ${receiptDetails.profile.price - receiptDetails.payment.amount}'),
+                  'Change: ${(receiptDetails.profile.price + receiptDetails.payment.balance) - receiptDetails.payment.amount}'),
               Text(
                   'Trans Date: ${DateFormat.yMMMd('en_US').format(receiptDetails.payment.dateCreated)}'),
               const Divider(
